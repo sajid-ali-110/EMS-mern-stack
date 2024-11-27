@@ -3,7 +3,8 @@ import { useAuth } from "../context/AuthContext.jsx";
 
 const AdminDashboard = () => {
   const { user } = useAuth();
-  return <div>AdminDashboard {user.name} </div>;
+  console.log(user);
+  return <div>AdminDashboard {user?.name} </div>;
 };
 
 export default AdminDashboard;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import login from "../../../server/controllers/authController";
+
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +20,7 @@ const Login = () => {
         "http://localhost:5000/api/auth/login",
         data
       );
-      if (response.data.success) {
+      if (response.data) {
         login(response.data.user);
         localStorage.setItem("token", response.data.token);
         if (response.data.user.role === "admin") {
