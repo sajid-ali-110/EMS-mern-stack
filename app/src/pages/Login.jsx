@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 import { useAuth } from "../context/AuthContext";
@@ -92,9 +92,6 @@ const Login = () => {
               </button>
             </div>
           </form>
-          <marquee behavior="scroll" direction="left">
-            This text will scroll from right to left.
-          </marquee>
         </div>
       </div>
     </div>
