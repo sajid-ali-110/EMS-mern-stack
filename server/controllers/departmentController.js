@@ -3,6 +3,11 @@ import Department from "../models/Department.js";
 const addDepartment = async (req, res) => {
   try {
     const { dep_name, description } = req.body;
+    if (!dep_name || !description) {
+      return res
+        .status(500)
+        .json({ success: false, error: "some fields are missing" });
+    }
     const newDep = new Department({
       dep_name,
       description,

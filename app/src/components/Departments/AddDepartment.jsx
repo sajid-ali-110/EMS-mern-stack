@@ -10,12 +10,13 @@ const AddDepartment = () => {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { name, value } = e.target.value;
+    const { name, value } = e.target;
     setDepartment({ ...department, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await axios.post(
         "http://localhost:5000/api/department/add",
@@ -51,7 +52,7 @@ const AddDepartment = () => {
               type="text"
               name="dep_name"
               placeholder="Enter Dep Name"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               className="mt-1 w-full p-2 border border-gray-300 rounded-md"
               required
             />
@@ -67,7 +68,7 @@ const AddDepartment = () => {
               type="text"
               name="description"
               placeholder="Description"
-              onChange={handleChange}
+              onChange={(e) => handleChange(e)}
               className="mt-1 w-full p-2 border border-gray-300 rounded-md"
               rows="4"
             />
