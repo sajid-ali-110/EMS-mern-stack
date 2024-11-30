@@ -7,6 +7,7 @@ import RoleBaseRoutes from "./utils/RoleBaseRoutes";
 import AdminSumary from "./components/Dashboard/AdminSumary.jsx";
 import DepartmentList from "./components/Departments/DepartmentList.jsx";
 import AddDepartment from "./components/Departments/AddDepartment.jsx";
+import EditDepartment from "./components/Departments/EditDepartment.jsx";
 
 function App() {
   return (
@@ -14,18 +15,34 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login" />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/admin-dashboard" element={
-          <PrivateRoutes>
-            <RoleBaseRoutes requiredRole={["admin"]}>
-              <AdminDashboard />
-            </RoleBaseRoutes>
-          </PrivateRoutes>
-        }>
+        <Route
+          path="/admin-dashboard"
+          element={
+            <PrivateRoutes>
+              <RoleBaseRoutes requiredRole={["admin"]}>
+                <AdminDashboard />
+              </RoleBaseRoutes>
+            </PrivateRoutes>
+          }
+        >
           <Route index element={<AdminSumary />}></Route>
-          <Route path="/admin-dashboard/departments" element={<DepartmentList />}></Route>
-          <Route path="/admin-dashboard/add-department" element={<AddDepartment />}></Route>
+          <Route
+            path="/admin-dashboard/departments"
+            element={<DepartmentList />}
+          ></Route>
+          <Route
+            path="/admin-dashboard/add-department"
+            element={<AddDepartment />}
+          ></Route>
+          <Route
+            path="/admin-dashboard/department/:id"
+            element={<EditDepartment />}
+          ></Route>
         </Route>
-        <Route path="/employee-dashboard" element={<EmployeeDashboard />}></Route>
+        <Route
+          path="/employee-dashboard"
+          element={<EmployeeDashboard />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );
