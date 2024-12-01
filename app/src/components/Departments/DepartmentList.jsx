@@ -64,7 +64,7 @@ const DepartmentList = () => {
               add department
             </Link>
           </div>
-          <div>
+          <div className="mt-5">
             <DataTable columns={columns} data={departments} />
           </div>
         </div>

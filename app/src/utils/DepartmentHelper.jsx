@@ -19,7 +19,7 @@ export const columns = [
   },
 ];
 
-export const DepartmentButtons = (DepId) => {
+export const DepartmentButtons = ({ DepId }) => {
   const navigate = useNavigate();
   return (
     <div className="flex space-x-3">
